@@ -11,6 +11,7 @@ Download all videos from YouTube playlist.
   <ul>
     <li>pip3 install -r requirements.txt</li>
   </ul>
+  <br>
 <p>Steps to follow:</p>
   <p>Step 1: copy any youtube playlist link</p>
   <p>Step 2: $ python3 yt_playlist_downloader.py yt_playlist_link</p>

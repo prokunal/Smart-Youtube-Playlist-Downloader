@@ -23,37 +23,38 @@ try:
 except:
     print('Playlist link is not valid.')
     sys.exit(0)
-l1 = ceil(len(links)/4)
-
-link1 = links[0:l1]
-link2 = links[l1:l1+l1]
-link3 = links[l1+l1:l1+l1+l1]
-link4 = links[l1+l1+l1:l1+l1+l1+l1]
+    
+def split(links,size):
+    for i in range(0,len(links),size):
+        yield links[i:i+size]
+      
+size = ceil(len(links)/4)
+link = list(split(links,size))
 
 print("Downloading Started...\n")
 def downloader1():
-    for i in link1:
+    for i in link[0]:
       yt = YouTube(i)
       ys = yt.streams.get_highest_resolution()
       filename = ys.download()
       print("threading 1 -->  " + filename.split('/')[-1] + ' Downloaded')
 
 def downloader2():
-    for i in link2:
+    for i in link[1]:
       yt = YouTube(i)
       ys = yt.streams.get_highest_resolution()
       filename = ys.download()
       print("threading 2 -->  " + filename.split('/')[-1] + ' Downloaded')
 
 def downloader3():
-    for i in link3:
+    for i in link[2]:
       yt = YouTube(i)
       ys = yt.streams.get_highest_resolution()
       filename = ys.download()
       print("threading 3 -->  " + filename.split('/')[-1] + ' Downloaded')
 
 def downloader4():
-    for i in link4:
+    for i in link[3]:
       yt = YouTube(i)
       ys = yt.streams.get_highest_resolution()
       filename = ys.download()

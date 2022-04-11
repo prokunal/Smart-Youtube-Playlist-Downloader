@@ -14,7 +14,21 @@ except:
     print('usage: python3 {} url'.format(__file__.split('/')[-1]))
     sys.exit(0)
 #global links
-print("Playlist Name : {}\nChannel Name  : {}\nTotal Videos  : {}\nTotal Views   : {}".format(p.title,p.owner,p.length,p.views))
+print("Choose resolution to download.\n1. 480p\n2. 720p\n3. 1080p\n4. 4k")
+choice = input("Select resolution: ")
+if choice == '1':
+    res = "480p"
+elif choice == '2':
+    res = "720p"
+elif choice == '3':
+    res = "1080p"
+elif choice == '4':
+    res = "2160p"
+else:
+    print("Choose correct resolution.")
+    sys.exit(0)
+
+print("\nPlaylist Name : {}\nChannel Name  : {}\nTotal Videos  : {}\nTotal Views   : {}".format(p.title,p.owner,p.length,p.views))
 links = []
 size = 0
 try:
@@ -35,28 +49,52 @@ print("Downloading Started...\n")
 def downloader1():
     for i in link[0]:
       yt = YouTube(i)
-      ys = yt.streams.get_highest_resolution()
+      for j in yt.streams:
+          check_res = str(j)
+          if  check_res.find(res) > 0:
+              ys = yt.streams.filter(res=res).first()
+              break
+          else:
+              ys = yt.streams.get_highest_resolution()
       filename = ys.download()
       print("threading 1 -->  " + filename.split('/')[-1] + ' -> Downloaded')
 
 def downloader2():
     for i in link[1]:
       yt = YouTube(i)
-      ys = yt.streams.get_highest_resolution()
+      for j in yt.streams:
+          check_res = str(j)
+          if check_res.find(res) > 0:
+              ys = yt.streams.filter(res=res).first()
+              break
+          else:
+              ys = yt.streams.get_highest_resolution()
       filename = ys.download()
       print("threading 2 -->  " + filename.split('/')[-1] + ' -> Downloaded')
 
 def downloader3():
     for i in link[2]:
       yt = YouTube(i)
-      ys = yt.streams.get_highest_resolution()
+      for j in yt.streams:
+          check_res = str(j)
+          if check_res.find(res) > 0:
+              ys = yt.streams.filter(res=res).first()
+              break
+          else:
+              ys = yt.streams.get_highest_resolution()
       filename = ys.download()
       print("threading 3 -->  " + filename.split('/')[-1] + ' -> Downloaded')
 
 def downloader4():
     for i in link[3]:
       yt = YouTube(i)
-      ys = yt.streams.get_highest_resolution()
+      for j in yt.streams:
+          check_res = str(j)
+          if check_res.find(res) > 0:
+              ys = yt.streams.filter(res=res).first()
+              break
+          else:
+              ys = yt.streams.get_highest_resolution()
       filename = ys.download()
       print("threading 4 -->  " + filename.split('/')[-1] + ' -> Downloaded')
 
@@ -68,4 +106,3 @@ t1.start()
 t2.start()
 t3.start()
 t4.start()
-

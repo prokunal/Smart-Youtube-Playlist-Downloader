@@ -5,7 +5,6 @@ Download all videos from YouTube playlist.
 <h1>Features</h1>
 <ul>
   <li>super fast downloading with threading</li>
-  <li>choose resolution to download</li>
   <li>resume from where your download left<li>
 <ul>
 <h1>Usage</h1>

@@ -9,10 +9,9 @@ import sys
 import threading
 
 try:
-    p = Playlist(sys.argv[1])
+    p = Playlist(input("Enter Playlist URL: "))
 except:
-    print('usage: python3 {} url'.format(__file__.split('/')[-1]))
-    sys.exit(0)
+    pass
 #global links
 print("Playlist Name : {}\nChannel Name  : {}\nTotal Videos  : {}\nTotal Views   : {}".format(p.title,p.owner,p.length,p.views))
 links = []

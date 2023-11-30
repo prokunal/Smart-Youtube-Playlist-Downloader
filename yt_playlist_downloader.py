@@ -30,32 +30,44 @@ link = list(split_link(links,size))
 
 print("Downloading Started...\n")
 def downloader1():
-    for i in link[0]:
-      yt = YouTube(i)
-      ys = yt.streams.get_highest_resolution()
-      filename = ys.download()
-      print("threading 1 -->  " + filename.split('/')[-1] + ' Downloaded')
+    try:       
+        for i in link[0]:
+            yt = YouTube(i)
+            ys = yt.streams.get_highest_resolution()
+            filename = ys.download()
+            print("threading 1 -->  " + filename.split('/')[-1] + ' Downloaded')
+    except Exception as e:
+        print(f"Failed to download {i}: {e}")
 
 def downloader2():
-    for i in link[1]:
-      yt = YouTube(i)
-      ys = yt.streams.get_highest_resolution()
-      filename = ys.download()
-      print("threading 2 -->  " + filename.split('/')[-1] + ' Downloaded')
+    try:       
+        for i in link[1]:
+            yt = YouTube(i)
+            ys = yt.streams.get_highest_resolution()
+            filename = ys.download()
+            print("threading 1 -->  " + filename.split('/')[-1] + ' Downloaded')
+    except Exception as e:
+        print(f"Failed to download {i}: {e}")
 
 def downloader3():
-    for i in link[2]:
-      yt = YouTube(i)
-      ys = yt.streams.get_highest_resolution()
-      filename = ys.download()
-      print("threading 3 -->  " + filename.split('/')[-1] + ' Downloaded')
+    try:       
+        for i in link[2]:
+            yt = YouTube(i)
+            ys = yt.streams.get_highest_resolution()
+            filename = ys.download()
+            print("threading 1 -->  " + filename.split('/')[-1] + ' Downloaded')
+    except Exception as e:
+        print(f"Failed to download {i}: {e}")
 
 def downloader4():
-    for i in link[3]:
-      yt = YouTube(i)
-      ys = yt.streams.get_highest_resolution()
-      filename = ys.download()
-      print("threading 4 -->  " + filename.split('/')[-1] + ' Downloaded')
+    try:       
+        for i in link[3]:
+            yt = YouTube(i)
+            ys = yt.streams.get_highest_resolution()
+            filename = ys.download()
+            print("threading 1 -->  " + filename.split('/')[-1] + ' Downloaded')
+    except Exception as e:
+        print(f"Failed to download {i}: {e}")
 
 t1 = threading.Thread(target=downloader1, name='d1')
 t2 = threading.Thread(target=downloader2,name='d2')

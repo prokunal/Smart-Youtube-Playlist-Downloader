@@ -21,7 +21,9 @@ Features
     
     Step 1: copy any youtube playlist link
     
-    Step 2: $ python3 yt\_playlist\_downloader.py yt\_playlist\_link
+    Step 2: ```
+    python3 yt\_playlist\_downloader.py yt\_playlist\_link
+    ```
     
     Proof
     =====

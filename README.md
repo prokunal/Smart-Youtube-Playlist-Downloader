@@ -23,7 +23,7 @@ Features
     
     Step 2:
     ```
-     python3 yt\_playlist\_downloader.py yt\_playlist\_link
+     python3 yt_playlist_downloader.py yt_playlist_link
     ```
     
     Proof
